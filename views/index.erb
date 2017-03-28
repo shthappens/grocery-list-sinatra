@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Grocery List</title>
+  </head>
+
+  <body>
+    <h2>Groceries</h2>
+
+    <ul>
+      <% if @groceries %>
+        <% @groceries.each do |grocery| %>
+        <li><%= "#{grocery[0]}" %></li>
+        <% end %>
+      <% end %>
+    </ul>
+
+    <h2><%= @error_message if @error_message%></h2>
+
+    <form action="/grocery-list" method="post">
+      <label for="grocery_name">Name</label>
+      <input type="text" name="grocery_name" id="grocery_name">
+      <input type="submit" value="Add">
+    </form>
+
+  </body>
+</html>
